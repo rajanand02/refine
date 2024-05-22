@@ -1,27 +1,13 @@
 ---
 title: Test doc
 ---
-<SwmSnippet path="/examples/blog-react-dnd/src/contexts/index.tsx" line="17">
+<SwmSnippet path="examples/blog-react-dnd/src/contexts/index.tsx" line="31">
 
 ---
 
 Test sippet
 
-```tsx
-
-export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
-  children,
-}) => {
-  const colorModeFromLocalStorage = localStorage.getItem("colorMode");
-  const isSystemPreferenceDark = window?.matchMedia(
-    "(prefers-color-scheme: dark)",
-  ).matches;
-
-  const systemPreference = isSystemPreferenceDark ? "dark" : "light";
-  const [mode, setMode] = useState(
-    colorModeFromLocalStorage || systemPreference,
-  );
-
+```
   useEffect(() => {
     window.localStorage.setItem("colorMode", mode);
   }, [mode]);
@@ -33,20 +19,6 @@ export const ColorModeContextProvider: React.FC<PropsWithChildren> = ({
       setMode("light");
     }
   };
-
-  const { darkAlgorithm, defaultAlgorithm } = theme;
-
-  return (
-    <ConfigProvider
-      theme={{
-        algorithm: mode === "light" ? defaultAlgorithm : darkAlgorithm,
-      }}
-    >
-      {children}
-    </ConfigProvider>
-  );
-};
-
 ```
 
 ---
